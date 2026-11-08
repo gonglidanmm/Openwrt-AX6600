@@ -3,7 +3,7 @@
 #增加插件
 CONFIG_PACKAGE_luci-app-autoreboot=y
 CONFIG_PACKAGE_luci-app-netspeedtest=n
-CONFIG_PACKAGE_luci-app-samba4=y
+CONFIG_PACKAGE_luci-app-samba4=n
 #CONFIG_PACKAGE_luci-app-sqm=y
 CONFIG_PACKAGE_luci-app-sentinel=y
 CONFIG_PACKAGE_luci-app-arpbind=y
@@ -174,4 +174,8 @@ CONFIG_PACKAGE_v2ray-geosite=y
 # BTF（dae CO-RE eBPF 核心依赖，当前内核缺，需调试信息前置）
 CONFIG_KERNEL_DEBUG_INFO=y
 CONFIG_KERNEL_DEBUG_INFO_BTF=y
+
+# ===== 代理加速 =====
+# BBR TCP 拥塞控制（拥堵/丢包链路提速，代理转发必备）
+CONFIG_PACKAGE_kmod-tcp-bbr=y
 
