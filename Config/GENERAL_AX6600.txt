@@ -163,16 +163,16 @@ CONFIG_PACKAGE_luci-app-wireless-regdb=y
 CONFIG_PACKAGE_skb_recycler=n
 
 # ===== dae (大鹅) eBPF 透明代理 内核支持 =====
-# sch_bpf 调度器（dae 核心机制，当前内核缺）
+# sch_bpf 调度器（dae 核心机制）
 CONFIG_PACKAGE_kmod-sched-bpf=y
-# XDP socket + 诊断（dae 依赖）
-CONFIG_PACKAGE_kmod-xdp-sockets=y
-CONFIG_PACKAGE_kmod-xdp-sockets-diag=y
+# XDP socket（dae 加速模式，内核选项名是 KERNEL_XDP_SOCKETS，不是 kmod 包）
+CONFIG_KERNEL_XDP_SOCKETS=y
 # 地理数据（dae 分流用）
 CONFIG_PACKAGE_v2ray-geoip=y
 CONFIG_PACKAGE_v2ray-geosite=y
-# BTF（dae CO-RE eBPF 核心依赖，当前内核缺，需调试信息前置）
+# BTF（dae CO-RE eBPF 核心依赖；必须关掉 reduced 调试信息，否则被 kconfig 拒绝）
 CONFIG_KERNEL_DEBUG_INFO=y
+CONFIG_KERNEL_DEBUG_INFO_REDUCED=n
 CONFIG_KERNEL_DEBUG_INFO_BTF=y
 
 # ===== 代理加速 =====
