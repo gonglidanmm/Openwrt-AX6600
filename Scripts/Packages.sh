@@ -73,6 +73,9 @@ if [[ "${WRT_PROFILE^^}" == "PLUS" ]]; then
 	UPDATE_PACKAGE "viking" "ones20250/packages" "main" "" "luci-app-timewol luci-app-wolplus luci-app-wolultra"
 fi
 
+# 分离式 BTF（dae CO-RE eBPF 需要；内核不含 BTF 时，用它从内核头+config 生成 BTF，不撑内核镜像）
+UPDATE_PACKAGE "vmlinux-btf" "QiuSimons/vmlinux-btf" "master"
+
 #UPDATE_PACKAGE "mosdns" "sbwml/luci-app-mosdns" "v5" "" "v2dat"
 
 #UPDATE_PACKAGE "luci-app-tailscale" "asvow/luci-app-tailscale" "main"

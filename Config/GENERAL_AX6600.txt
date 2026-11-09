@@ -170,6 +170,8 @@ CONFIG_KERNEL_XDP_SOCKETS=y
 # 地理数据（dae 分流用）
 CONFIG_PACKAGE_v2ray-geoip=y
 CONFIG_PACKAGE_v2ray-geosite=y
+# 分离式 BTF（dae CO-RE eBPF 需要；内核不含 BTF，由 vmlinux-btf 包生成 /usr/lib/debug/boot/vmlinux）
+CONFIG_PACKAGE_vmlinux-btf=y
 # 注：BTF 会撑大内核超过 ipq60xx 12MB 分区上限，无法塞进内核。
 #     若要 dae，只能走「分离式 vmlinux-btf 包」方案（内核不含 BTF，BTF 单独打包）。
 
